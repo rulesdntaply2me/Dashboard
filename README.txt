@@ -1,1 +1,9 @@
-Sclass Fitness static coaching dashboard. Upload contents to GitHub/Vercel. Vercel settings: Framework Preset Other; Build Command blank; Install Command blank; Output Directory blank. Entry file: index.html.
+Sclass Fitness Coaching Dashboard - CLICK FIX VERSION
+
+Vercel settings:
+Framework Preset: Other
+Install Command: blank
+Build Command: blank
+Output Directory: blank
+
+This is a single-file static app. No npm, no package.json, no dependencies.

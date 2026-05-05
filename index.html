@@ -1,146 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sclass Fitness | Coach Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sclass Fitness Coaching Dashboard</title>
+<style>
+:root{--bg:#070707;--panel:#121212;--gold:#d7b45d;--gold2:#ffe29a;--text:#f7f0df;--muted:#aaa294;--line:#3b2c13;--good:#67d889;--bad:#ff6868;--warn:#ffd166}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0a0a0a,#160f04);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}.side{padding:22px;background:#080808;border-right:1px solid var(--line)}.brand{display:flex;gap:12px;align-items:center;margin-bottom:20px}.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#070707;display:grid;place-items:center;font-size:30px;font-weight:1000}.brand b{display:block;letter-spacing:2px}.brand span,.muted{color:var(--muted)}.tabs{display:grid;gap:8px}.tab{border:1px solid var(--line);background:#111;color:var(--text);padding:13px;border-radius:14px;text-align:left;font-weight:900;cursor:pointer;position:relative;z-index:5}.tab:hover,.tab.active{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#060606}.sideBox{margin-top:18px;border:1px solid var(--line);border-radius:18px;background:#111;padding:15px}.sideActions{display:grid;gap:8px;margin-top:12px}.sideActions button,.fileLabel,.goldBtn{border:1px solid var(--line);border-radius:13px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#060606;padding:12px;font-weight:900;cursor:pointer;text-align:center}.fileLabel input{display:none}.main{padding:26px;max-width:1550px;width:100%;margin:auto}.hero{display:flex;justify-content:space-between;gap:20px;background:linear-gradient(135deg,#17120a,#0e0e0e);border:1px solid var(--line);border-radius:26px;padding:24px}.hero h1{margin:0;font-size:38px}.eyebrow{font-size:12px;color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-weight:1000}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-width:440px}.stat,.kpi{border:1px solid var(--line);border-radius:17px;background:#070707;padding:15px}.stat b,.kpi b{display:block;color:var(--gold2);font-size:27px}.stat small,.kpi small{color:var(--muted);text-transform:uppercase;font-weight:900;font-size:11px}.view{display:none}.view.active{display:block}.card{margin-top:18px;border:1px solid var(--line);border-radius:23px;background:rgba(18,18,18,.96);padding:21px}.card h2{margin:0 0 14px}.grid{display:grid;gap:14px}.two{grid-template-columns:1fr 1fr}.four{grid-template-columns:repeat(4,1fr)}.three{grid-template-columns:repeat(3,1fr)}label{font-size:12px;text-transform:uppercase;color:var(--muted);font-weight:1000}input,select,textarea{width:100%;margin-top:5px;border:1px solid #443418;border-radius:12px;background:#070707;color:var(--text);padding:11px;font-size:14px}textarea{min-height:170px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.actions{display:flex;gap:10px;flex-wrap:wrap}.meal{border:1px solid #332713;border-radius:20px;margin-top:16px;overflow:hidden}.mealHead{display:flex;justify-content:space-between;align-items:center;background:#070707;padding:13px 15px}.mealHead h3{margin:0;color:var(--gold2)}table{width:100%;border-collapse:collapse}th,td{border-top:1px solid #2c2110;padding:8px;text-align:left;vertical-align:middle}th{color:var(--muted);font-size:11px;text-transform:uppercase}.macro{color:var(--gold2);font-weight:900}.bars{display:grid;gap:10px}.barRow{display:grid;grid-template-columns:110px 1fr 190px;gap:10px;align-items:center}.track{height:16px;background:#050505;border:1px solid var(--line);border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0}.fill.over{background:linear-gradient(90deg,var(--warn),var(--bad))}.snap,.ranges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.snap div,.ranges div{padding:13px;border:1px solid var(--line);background:#070707;border-radius:15px}.dbEditor{display:grid;grid-template-columns:2fr 1fr repeat(8,86px) 105px;gap:8px}.tableWrap{max-height:520px;overflow:auto}.printSheet{background:#fff;color:#111;border-radius:18px;padding:28px}.printSheet h1{color:#111}.printSheet h2{color:#8a6500;border-bottom:2px solid #d7b45d;padding-bottom:5px}.printGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.printGrid div{border:1px solid #ddd;border-radius:10px;background:#fafafa;padding:10px}@media(max-width:1050px){.app{grid-template-columns:1fr}.hero{display:block}.stats,.kpis,.four,.three,.two,.snap,.ranges,.printGrid{grid-template-columns:1fr}.dbEditor{grid-template-columns:1fr 1fr}.main{padding:14px}.tabs{grid-template-columns:1fr 1fr}.side{border-right:0;border-bottom:1px solid var(--line)}}@media print{.side,.hero,.noPrint{display:none!important}.app{display:block}.main{padding:0}.view{display:none!important}.view#print{display:block!important}.printSheet{border-radius:0;padding:0}body{background:#fff;color:#111}}
+</style>
 </head>
 <body>
-  <div class="shell">
-    <aside class="sidebar no-print">
-      <div class="brand"><div class="mark">S</div><div><b>SCLASS FITNESS</b><span>Elite Coach System</span></div></div>
-      <nav>
-        <button class="nav active" data-view="dashboard">Dashboard</button>
-        <button class="nav" data-view="client">Client Profile</button>
-        <button class="nav" data-view="macros">Goal + Macros</button>
-        <button class="nav" data-view="planner">Meal Planner</button>
-        <button class="nav" data-view="checkins">Check-Ins</button>
-        <button class="nav" data-view="database">Food Database</button>
-        <button class="nav" data-view="export">Client PDF View</button>
-      </nav>
-      <div class="sideCard">
-        <small>Current Client</small>
-        <strong id="sideClientName">Client Name</strong>
-        <span id="sideGoal">Fat Loss</span>
-      </div>
-      <div class="sideActions">
-        <button id="downloadJson">Export Client JSON</button>
-        <label class="fileBtn">Import JSON<input id="importJson" type="file" accept="application/json"></label>
-        <button onclick="window.print()">Print / Save PDF</button>
-      </div>
-    </aside>
-
-    <main>
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Coach Sclass Command Center</p>
-          <h1>Coaching Dashboard</h1>
-          <p class="muted">Built like your Excel base: client data → goals → meal plan → macro status → export.</p>
-        </div>
-        <div class="topStats">
-          <div><span id="topCals">0</span><small>Target Calories</small></div>
-          <div><span id="topActual">0</span><small>Planned Calories</small></div>
-          <div><span id="topStatus">Ready</span><small>Status</small></div>
-        </div>
-      </header>
-
-      <section id="dashboard" class="view active">
-        <div class="kpiGrid">
-          <div class="kpi"><small>BMR</small><b id="bmrOut">0</b></div>
-          <div class="kpi"><small>TDEE</small><b id="tdeeOut">0</b></div>
-          <div class="kpi"><small>Weekly Goal Pace</small><b id="weeklyPaceOut">0</b></div>
-          <div class="kpi"><small>Macro Accuracy</small><b id="accuracyOut">0%</b></div>
-        </div>
-        <div class="grid two">
-          <section class="card"><h2>Coach Snapshot</h2><div id="coachSnapshot" class="snapshot"></div></section>
-          <section class="card"><h2>Red Flags / Notes</h2><textarea id="coachNotes" placeholder="Medical notes, Crohn's, digestion, low iron, schedule issues, adherence patterns, foods to avoid..."></textarea></section>
-        </div>
-        <section class="card"><h2>Macro Status</h2><div id="macroBars" class="bars"></div></section>
-      </section>
-
-      <section id="client" class="view">
-        <section class="card"><h2>Client Profile</h2>
-          <div class="formGrid four">
-            <label>Full Name<input id="clientName" value="Client Name"></label>
-            <label>Sex<select id="sex"><option>Male</option><option>Female</option></select></label>
-            <label>Age<input id="age" type="number" value="30"></label>
-            <label>Height<input id="height" type="number" value="70"></label>
-            <label>Height Unit<select id="heightUnit"><option value="in">inches</option><option value="cm">cm</option></select></label>
-            <label>Current Weight<input id="weight" type="number" value="200"></label>
-            <label>Weight Unit<select id="weightUnit"><option value="lb">lb</option><option value="kg">kg</option></select></label>
-            <label>Goal Weight<input id="goalWeight" type="number" value="185"></label>
-            <label>Start Date<input id="startDate" type="date"></label>
-            <label>Target Date<input id="targetDate" type="date"></label>
-            <label>Activity Level<select id="activity"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55" selected>Moderate</option><option value="1.725">Very Active</option><option value="1.9">Athlete</option></select></label>
-            <label>Primary Goal<select id="goal"><option>Fat Loss</option><option>Maintain</option><option>Lean Bulk</option><option>Muscle Gain</option><option>Recomp</option></select></label>
-          </div>
-          <div class="formGrid three">
-            <label>Training Days / Week<input id="trainingDays" type="number" value="4"></label>
-            <label>Steps / Day<input id="steps" type="number" value="8000"></label>
-            <label>Sleep Goal<input id="sleepGoal" type="number" value="7"></label>
-          </div>
-        </section>
-      </section>
-
-      <section id="macros" class="view">
-        <section class="card"><h2>Goal Pacing System</h2>
-          <div class="formGrid four">
-            <label>Calories<input id="calTarget" type="number"></label>
-            <label>Protein g<input id="proteinTarget" type="number"></label>
-            <label>Carbs g<input id="carbTarget" type="number"></label>
-            <label>Fat g<input id="fatTarget" type="number"></label>
-            <label>Fiber g<input id="fiberTarget" type="number" value="30"></label>
-            <label>Sugar Max g<input id="sugarTarget" type="number" value="60"></label>
-            <label>Sodium mg<input id="sodiumTarget" type="number" value="2500"></label>
-            <label>Water oz<input id="waterTarget" type="number" value="120"></label>
-          </div>
-          <div class="actions"><button id="autoMacros">Auto Calculate Macros</button><button id="lockTargets">Recalculate Carbs From Calories</button></div>
-          <p id="paceStatus" class="statusBox"></p>
-        </section>
-        <section class="card"><h2>Ideal Quick Ranges</h2><div class="rangeGrid" id="rangeGrid"></div></section>
-      </section>
-
-      <section id="planner" class="view">
-        <section class="card"><div class="sectionHead"><h2>Meal Planner</h2><span>6 meals • 7 items per meal • category filtered • alphabetical dropdowns</span></div><div id="meals"></div></section>
-      </section>
-
-      <section id="checkins" class="view">
-        <section class="card"><h2>Weekly Check-Ins</h2>
-          <table class="checkTable"><thead><tr><th>Week</th><th>Date</th><th>Weight</th><th>Change</th><th>Avg Calories</th><th>Adherence %</th><th>Notes</th></tr></thead><tbody id="checkRows"></tbody></table>
-        </section>
-      </section>
-
-      <section id="database" class="view">
-        <section class="card"><h2>Food Database</h2><p class="muted">Macros are stored per 100g. Serving size lets the meal planner use “serving” automatically.</p>
-          <div class="dbEditor">
-            <input id="newFoodName" placeholder="Food name">
-            <select id="newFoodCat"></select>
-            <input id="newFoodCal" type="number" placeholder="Cal">
-            <input id="newFoodP" type="number" placeholder="Protein">
-            <input id="newFoodC" type="number" placeholder="Carbs">
-            <input id="newFoodF" type="number" placeholder="Fat">
-            <input id="newFoodFiber" type="number" placeholder="Fiber">
-            <input id="newFoodSugar" type="number" placeholder="Sugar">
-            <input id="newFoodSodium" type="number" placeholder="Sodium">
-            <input id="newFoodServing" type="number" placeholder="Serving g" value="100">
-            <button id="addFood">Add Food</button>
-          </div>
-          <div class="tableWrap"><table><thead><tr><th>Category</th><th>Food</th><th>Cal</th><th>P</th><th>C</th><th>F</th><th>Fiber</th><th>Sugar</th><th>Sodium</th><th>Serving</th></tr></thead><tbody id="foodTable"></tbody></table></div>
-        </section>
-      </section>
-
-      <section id="export" class="view print-area">
-        <section class="clientSheet">
-          <h1>Sclass Fitness Meal Plan</h1>
-          <div class="clientMeta" id="clientMeta"></div>
-          <h2>Daily Targets</h2><div id="exportTargets" class="exportGrid"></div>
-          <h2>Meal Plan</h2><div id="exportMeals"></div>
-          <h2>Coach Notes</h2><p id="exportNotes"></p>
-        </section>
-      </section>
-    </main>
+<div class="app">
+<aside class="side noPrint">
+  <div class="brand"><div class="logo">S</div><div><b>SCLASS FITNESS</b><span>Coach Dashboard</span></div></div>
+  <div class="tabs">
+    <button type="button" class="tab active" data-page="dashboard">Dashboard</button>
+    <button type="button" class="tab" data-page="client">Client Profile</button>
+    <button type="button" class="tab" data-page="macros">Goal + Macros</button>
+    <button type="button" class="tab" data-page="planner">Meal Planner</button>
+    <button type="button" class="tab" data-page="checkins">Check-Ins</button>
+    <button type="button" class="tab" data-page="database">Food Database</button>
+    <button type="button" class="tab" data-page="print">Client PDF View</button>
   </div>
-  <script src="app.js"></script>
+  <div class="sideBox"><small class="muted">Current Client</small><h3 id="sideName">Client Name</h3><p id="sideGoal">Fat Loss</p></div>
+  <div class="sideActions"><button type="button" id="saveJson">Export Client JSON</button><label class="fileLabel">Import JSON<input id="loadJson" type="file" accept="application/json"></label><button type="button" id="printBtn">Print / Save PDF</button></div>
+</aside>
+<main class="main">
+  <section class="hero noPrint"><div><p class="eyebrow">Coach Sclass Command Center</p><h1>Elite Coaching Dashboard</h1><p class="muted">Excel-style client profile, goal pacing, macros, meal plan, check-ins, food database, and PDF view.</p></div><div class="stats"><div class="stat"><b id="targetCalTop">0</b><small>Target Calories</small></div><div class="stat"><b id="plannedCalTop">0</b><small>Planned Calories</small></div><div class="stat"><b id="statusTop">Ready</b><small>Status</small></div></div></section>
+  <section id="dashboard" class="view active"><div class="kpis"><div class="kpi"><small>BMR</small><b id="bmr">0</b></div><div class="kpi"><small>TDEE</small><b id="tdee">0</b></div><div class="kpi"><small>Weekly Goal Pace</small><b id="weekly">0</b></div><div class="kpi"><small>Macro Accuracy</small><b id="accuracy">0%</b></div></div><div class="grid two"><div class="card"><h2>Coach Snapshot</h2><div id="snapshot" class="snap"></div></div><div class="card"><h2>Red Flags / Notes</h2><textarea id="notes" placeholder="Medical notes, Crohn's, digestion, low iron, injury notes, foods to avoid, schedule issues..."></textarea></div></div><div class="card"><h2>Macro Status</h2><div id="bars" class="bars"></div></div></section>
+  <section id="client" class="view"><div class="card"><h2>Client Profile</h2><div class="grid four"><label>Full Name<input id="name" value="Client Name"></label><label>Sex<select id="sex"><option>Male</option><option>Female</option></select></label><label>Age<input id="age" type="number" value="30"></label><label>Height<input id="height" type="number" value="70"></label><label>Height Unit<select id="heightUnit"><option value="in">inches</option><option value="cm">cm</option></select></label><label>Current Weight<input id="weight" type="number" value="200"></label><label>Weight Unit<select id="weightUnit"><option value="lb">lb</option><option value="kg">kg</option></select></label><label>Goal Weight<input id="goalWeight" type="number" value="185"></label><label>Start Date<input id="startDate" type="date"></label><label>Target Date<input id="targetDate" type="date"></label><label>Activity Level<select id="activity"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55" selected>Moderate</option><option value="1.725">Very Active</option><option value="1.9">Athlete</option></select></label><label>Primary Goal<select id="goal"><option>Fat Loss</option><option>Maintain</option><option>Lean Bulk</option><option>Muscle Gain</option><option>Recomp</option></select></label></div><div class="grid three" style="margin-top:14px"><label>Training Days / Week<input id="trainingDays" type="number" value="4"></label><label>Steps / Day<input id="steps" type="number" value="8000"></label><label>Sleep Goal<input id="sleep" type="number" value="7"></label></div></div></section>
+  <section id="macros" class="view"><div class="card"><h2>Goal + Macro Targets</h2><div class="grid four"><label>Calories<input id="calTarget" type="number"></label><label>Protein g<input id="proteinTarget" type="number"></label><label>Carbs g<input id="carbTarget" type="number"></label><label>Fat g<input id="fatTarget" type="number"></label><label>Fiber g<input id="fiberTarget" type="number" value="30"></label><label>Sugar Max g<input id="sugarTarget" type="number" value="60"></label><label>Sodium mg<input id="sodiumTarget" type="number" value="2500"></label><label>Water oz<input id="waterTarget" type="number" value="120"></label></div><div class="actions" style="margin-top:14px"><button type="button" id="autoBtn" class="goldBtn">Auto Calculate Macros</button><button type="button" id="carbBtn" class="goldBtn">Recalculate Carbs From Calories</button></div><p id="pace" class="sideBox"></p></div><div class="card"><h2>Ideal Quick Ranges</h2><div id="ranges" class="ranges"></div></div></section>
+  <section id="planner" class="view"><div class="card"><h2>Meal Planner</h2><p class="muted">6 meals, 7 rows per meal, category-filtered foods, grams / oz / serving conversion, and live macros.</p><div id="meals"></div></div></section>
+  <section id="checkins" class="view"><div class="card"><h2>Weekly Check-Ins</h2><table><thead><tr><th>Week</th><th>Date</th><th>Weight</th><th>Change</th><th>Avg Calories</th><th>Adherence %</th><th>Notes</th></tr></thead><tbody id="checkRows"></tbody></table></div></section>
+  <section id="database" class="view"><div class="card"><h2>Food Database</h2><div class="dbEditor"><input id="foodName" placeholder="Food name"><select id="foodCat"></select><input id="foodCal" type="number" placeholder="Cal"><input id="foodP" type="number" placeholder="P"><input id="foodC" type="number" placeholder="C"><input id="foodF" type="number" placeholder="F"><input id="foodFiber" type="number" placeholder="Fiber"><input id="foodSugar" type="number" placeholder="Sugar"><input id="foodSodium" type="number" placeholder="Sodium"><input id="foodServ" type="number" placeholder="Serving" value="100"><button type="button" id="addFood" class="goldBtn">Add Food</button></div><div class="tableWrap"><table><thead><tr><th>Category</th><th>Food</th><th>Cal</th><th>P</th><th>C</th><th>F</th><th>Fiber</th><th>Sugar</th><th>Sodium</th><th>Serving</th></tr></thead><tbody id="foodTable"></tbody></table></div></div></section>
+  <section id="print" class="view"><div class="printSheet"><h1>Sclass Fitness Meal Plan</h1><div id="printMeta" class="printGrid"></div><h2>Daily Targets</h2><div id="printTargets" class="printGrid"></div><h2>Meal Plan</h2><div id="printMeals"></div><h2>Coach Notes</h2><p id="printNotes"></p></div></section>
+</main>
+</div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id); const all=s=>Array.from(document.querySelectorAll(s));
+const cats=['Blank','Protein','Carb','Fat','Vegetable','Fruit','Dairy','Condiment','Other'];
+let foods=[
+ ['None / Blank','Blank',0,0,0,0,0,0,0,100],['Chicken Breast Raw','Protein',120,23,0,2.6,0,0,60,100],['Chicken Breast Cooked','Protein',165,31,0,3.6,0,0,74,100],['Egg Whites','Protein',52,11,.7,.2,0,.7,166,100],['Lean Ground Beef 93%','Protein',172,21,0,8,0,0,75,100],['Turkey Breast','Protein',135,30,0,1,0,0,60,100],['Tuna','Protein',132,29,0,1,0,0,47,100],['Salmon','Protein',208,20,0,13,0,0,59,100],['Whey Protein','Protein',120,24,3,1.5,0,1,120,31],['White Rice Cooked','Carb',130,2.7,28,.3,.4,.1,1,100],['Jasmine Rice Cooked','Carb',129,2.7,28,.3,.4,0,0,100],['Sweet Potato','Carb',86,1.6,20,.1,3,4.2,55,100],['Oats Dry','Carb',389,17,66,7,10.6,1,2,40],['Bagel Plain','Carb',250,9,48,1.5,2,6,430,95],['Banana','Fruit',89,1.1,23,.3,2.6,12,1,118],['Blueberries','Fruit',57,.7,14,.3,2.4,10,1,100],['Avocado','Fat',160,2,9,15,7,.7,7,100],['Olive Oil','Fat',884,0,0,100,0,0,0,14],['Peanut Butter','Fat',588,25,20,50,6,9,17,32],['Almonds','Fat',579,21,22,50,12,4,1,28],['Broccoli','Vegetable',35,2.4,7,.4,3.3,1.7,41,100],['Spinach','Vegetable',23,2.9,3.6,.4,2.2,.4,79,100],['Greek Yogurt Nonfat','Dairy',59,10,3.6,.4,0,3.2,36,170],['Cottage Cheese Low Fat','Dairy',82,11,3.4,2.3,0,2.7,364,113],['Honey','Condiment',304,.3,82,0,.2,82,4,21],['Ketchup','Condiment',112,1.3,26,.2,.3,22,907,17]
+].map(f=>({name:f[0],cat:f[1],cal:f[2],p:f[3],c:f[4],fat:f[5],fiber:f[6],sugar:f[7],sodium:f[8],serv:f[9]}));
+let state={meals:Array.from({length:6},()=>Array.from({length:7},()=>({cat:'Blank',food:'None / Blank',qty:0,unit:'g'}))),checkins:Array.from({length:12},(_,i)=>({week:i+1,date:'',weight:'',change:'',cal:'',adh:'',notes:''}))};
+function num(id){return parseFloat($(id).value)||0} function round(n,d=0){return Number(n||0).toFixed(d)} function sortedFoods(cat){return foods.filter(f=>cat==='Blank'?f.cat==='Blank':f.cat===cat).sort((a,b)=>a.name.localeCompare(b.name))}
+function setDates(){let s=new Date(),t=new Date();t.setDate(t.getDate()+84);$('startDate').value=s.toISOString().slice(0,10);$('targetDate').value=t.toISOString().slice(0,10)}
+function getMetrics(){let weight=num('weight'),goalW=num('goalWeight'),height=num('height'),age=num('age');let kg=$('weightUnit').value==='kg'?weight:weight/2.20462;let cm=$('heightUnit').value==='cm'?height:height*2.54;let bmr=10*kg+6.25*cm-5*age+($('sex').value==='Male'?5:-161);let tdee=bmr*parseFloat($('activity').value||1.2);let start=new Date($('startDate').value),end=new Date($('targetDate').value);let weeks=Math.max(1,(end-start)/(1000*60*60*24*7));let weekly=(goalW-weight)/weeks;return{kg,lb:$('weightUnit').value==='kg'?weight*2.20462:weight,bmr,tdee,weekly}}
+function autoTargets(){let m=getMetrics(),goal=$('goal').value,cal=m.tdee;if(goal==='Fat Loss')cal-=500;if(goal==='Lean Bulk')cal+=200;if(goal==='Muscle Gain')cal+=350;if(goal==='Recomp')cal-=150;$('calTarget').value=Math.round(cal);$('proteinTarget').value=Math.round(m.lb*(goal==='Muscle Gain'||goal==='Lean Bulk'?1:0.9));$('fatTarget').value=Math.round(m.lb*0.35);recalcCarbs()}
+function recalcCarbs(){let cal=num('calTarget'),p=num('proteinTarget'),f=num('fatTarget');$('carbTarget').value=Math.max(0,Math.round((cal-p*4-f*9)/4))}
+function macroFor(row){let food=foods.find(f=>f.name===row.food)||foods[0];let grams=row.unit==='oz'?(parseFloat(row.qty)||0)*28.3495:row.unit==='serving'?(parseFloat(row.qty)||0)*food.serv:(parseFloat(row.qty)||0);let k=grams/100;return{cal:food.cal*k,p:food.p*k,c:food.c*k,fat:food.fat*k,fiber:food.fiber*k,sugar:food.sugar*k,sodium:food.sodium*k}}
+function totals(){let t={cal:0,p:0,c:0,fat:0,fiber:0,sugar:0,sodium:0};state.meals.flat().forEach(r=>{let m=macroFor(r);t.cal+=m.cal;t.p+=m.p;t.c+=m.c;t.fat+=m.fat;t.fiber+=m.fiber;t.sugar+=m.sugar;t.sodium+=m.sodium});return t}
+function renderMeals(){let html='';state.meals.forEach((meal,mi)=>{let mt={cal:0,p:0,c:0,fat:0};meal.forEach(r=>{let m=macroFor(r);mt.cal+=m.cal;mt.p+=m.p;mt.c+=m.c;mt.fat+=m.fat});html+=`<div class="meal"><div class="mealHead"><h3>Meal ${mi+1}</h3><span class="muted">${Math.round(mt.cal)} cal • P ${round(mt.p,1)} • C ${round(mt.c,1)} • F ${round(mt.fat,1)}</span></div><table><thead><tr><th>Category</th><th>Food</th><th>Amount</th><th>Unit</th><th>Cal</th><th>P</th><th>C</th><th>F</th><th>Fiber</th><th>Sugar</th><th>Sodium</th></tr></thead><tbody>`;meal.forEach((r,ri)=>{let m=macroFor(r);html+=`<tr><td><select class="cat" data-m="${mi}" data-r="${ri}">${cats.map(c=>`<option ${c===r.cat?'selected':''}>${c}</option>`).join('')}</select></td><td><select class="food" data-m="${mi}" data-r="${ri}">${sortedFoods(r.cat).map(f=>`<option ${f.name===r.food?'selected':''}>${f.name}</option>`).join('')}</select></td><td><input class="qty" data-m="${mi}" data-r="${ri}" type="number" step="0.1" value="${r.qty}"></td><td><select class="unit" data-m="${mi}" data-r="${ri}"><option value="g" ${r.unit==='g'?'selected':''}>g</option><option value="oz" ${r.unit==='oz'?'selected':''}>oz</option><option value="serving" ${r.unit==='serving'?'selected':''}>serving</option></select></td><td class="macro">${Math.round(m.cal)}</td><td>${round(m.p,1)}</td><td>${round(m.c,1)}</td><td>${round(m.fat,1)}</td><td>${round(m.fiber,1)}</td><td>${round(m.sugar,1)}</td><td>${Math.round(m.sodium)}</td></tr>`});html+='</tbody></table></div>'});$('meals').innerHTML=html;all('.cat').forEach(e=>e.addEventListener('change',ev=>{let r=state.meals[+e.dataset.m][+e.dataset.r];r.cat=ev.target.value;r.food=sortedFoods(r.cat)[0]?.name||'None / Blank';renderMeals();update()}));all('.food').forEach(e=>e.addEventListener('change',ev=>{state.meals[+e.dataset.m][+e.dataset.r].food=ev.target.value;update()}));all('.qty').forEach(e=>e.addEventListener('input',ev=>{state.meals[+e.dataset.m][+e.dataset.r].qty=ev.target.value;update()}));all('.unit').forEach(e=>e.addEventListener('change',ev=>{state.meals[+e.dataset.m][+e.dataset.r].unit=ev.target.value;update()}));}
+function renderDb(){cats.forEach(c=>{if(!$('foodCat').querySelector(`option[value="${c}"]`))$('foodCat').insertAdjacentHTML('beforeend',`<option>${c}</option>`)});$('foodTable').innerHTML=foods.slice().sort((a,b)=>(a.cat+a.name).localeCompare(b.cat+b.name)).map(f=>`<tr><td>${f.cat}</td><td>${f.name}</td><td>${f.cal}</td><td>${f.p}</td><td>${f.c}</td><td>${f.fat}</td><td>${f.fiber}</td><td>${f.sugar}</td><td>${f.sodium}</td><td>${f.serv}g</td></tr>`).join('')}
+function addFood(){foods.push({name:$('foodName').value||'New Food',cat:$('foodCat').value,cal:num('foodCal'),p:num('foodP'),c:num('foodC'),fat:num('foodF'),fiber:num('foodFiber'),sugar:num('foodSugar'),sodium:num('foodSodium'),serv:num('foodServ')||100});renderDb();renderMeals();update()}
+function renderCheckins(){$('checkRows').innerHTML=state.checkins.map((r,i)=>`<tr><td>${r.week}</td><td><input data-i="${i}" data-k="date" type="date" value="${r.date}"></td><td><input data-i="${i}" data-k="weight" value="${r.weight}"></td><td><input data-i="${i}" data-k="change" value="${r.change}"></td><td><input data-i="${i}" data-k="cal" value="${r.cal}"></td><td><input data-i="${i}" data-k="adh" value="${r.adh}"></td><td><input data-i="${i}" data-k="notes" value="${r.notes}"></td></tr>`).join('');all('#checkRows input').forEach(e=>e.addEventListener('input',()=>{state.checkins[+e.dataset.i][e.dataset.k]=e.value}))}
+function accuracy(t){let targets=[['cal','calTarget'],['p','proteinTarget'],['c','carbTarget'],['fat','fatTarget']];let score=targets.map(([k,id])=>{let target=num(id);if(!target)return 0;return Math.max(0,100-Math.abs(t[k]-target)/target*100)}).reduce((a,b)=>a+b,0)/4;return Math.round(score)}
+function renderBars(t){let rows=[['Calories','cal','calTarget',0],['Protein','p','proteinTarget',1],['Carbs','c','carbTarget',1],['Fat','fat','fatTarget',1],['Fiber','fiber','fiberTarget',1],['Sugar','sugar','sugarTarget',1],['Sodium','sodium','sodiumTarget',0]];$('bars').innerHTML=rows.map(([label,k,id,d])=>{let target=num(id),pct=target?Math.min(150,t[k]/target*100):0;return`<div class="barRow"><b>${label}</b><div class="track"><div class="fill ${pct>105?'over':''}" style="width:${Math.min(100,pct)}%"></div></div><span>${round(t[k],d)} / ${target}</span></div>`}).join('')}
+function renderPrint(t){$('printMeta').innerHTML=[['Client',$('name').value],['Goal',$('goal').value],['Current Weight',`${$('weight').value} ${$('weightUnit').value}`],['Goal Weight',$('goalWeight').value],['Activity',$('activity').selectedOptions[0].textContent],['Training Days',$('trainingDays').value],['Steps',$('steps').value],['Sleep Goal',$('sleep').value+' hrs']].map(x=>`<div><b>${x[0]}</b><br>${x[1]}</div>`).join('');$('printTargets').innerHTML=[['Calories',$('calTarget').value],['Protein',$('proteinTarget').value+'g'],['Carbs',$('carbTarget').value+'g'],['Fat',$('fatTarget').value+'g'],['Fiber',$('fiberTarget').value+'g'],['Sugar Max',$('sugarTarget').value+'g'],['Sodium',$('sodiumTarget').value+'mg'],['Water',$('waterTarget').value+'oz']].map(x=>`<div><b>${x[0]}</b><br>${x[1]}</div>`).join('');$('printMeals').innerHTML=state.meals.map((meal,mi)=>`<h3>Meal ${mi+1}</h3><table><thead><tr><th>Food</th><th>Amount</th><th>Cal</th><th>P</th><th>C</th><th>F</th></tr></thead><tbody>${meal.filter(r=>r.cat!=='Blank'&&parseFloat(r.qty)>0).map(r=>{let m=macroFor(r);return`<tr><td>${r.food}</td><td>${r.qty} ${r.unit}</td><td>${Math.round(m.cal)}</td><td>${round(m.p,1)}</td><td>${round(m.c,1)}</td><td>${round(m.fat,1)}</td></tr>`}).join('')||'<tr><td colspan="6">Blank</td></tr>'}</tbody></table>`).join('');$('printNotes').textContent=$('notes').value||'No notes added.'}
+function update(){let t=totals(),m=getMetrics(),acc=accuracy(t);$('targetCalTop').textContent=num('calTarget');$('plannedCalTop').textContent=Math.round(t.cal);$('statusTop').textContent=acc>=90?'On Target':acc>=75?'Close':'Adjust';$('bmr').textContent=Math.round(m.bmr);$('tdee').textContent=Math.round(m.tdee);$('weekly').textContent=round(m.weekly,2)+' lb/wk';$('accuracy').textContent=acc+'%';$('sideName').textContent=$('name').value||'Client';$('sideGoal').textContent=$('goal').value;$('pace').textContent=Math.abs(m.weekly)>2?`Aggressive pace: ${round(m.weekly,2)} lb/week. Consider longer timeframe or smaller deficit/surplus.`:`Reasonable pace: ${round(m.weekly,2)} lb/week based on dates.`;$('snapshot').innerHTML=[['Client',$('name').value],['Goal',$('goal').value],['TDEE',Math.round(m.tdee)],['Planned Calories',Math.round(t.cal)],['Protein',round(t.p,1)+'g'],['Carbs',round(t.c,1)+'g'],['Fat',round(t.fat,1)+'g'],['Sodium',Math.round(t.sodium)+'mg']].map(x=>`<div><b>${x[0]}</b><br>${x[1]}</div>`).join('');$('ranges').innerHTML=[['Protein','0.8–1.1g/lb'],['Fat','0.25–0.45g/lb'],['Fiber','25–40g/day'],['Water','0.5–0.7oz/lb'],['Fat Loss','300–700 cal deficit'],['Lean Bulk','150–300 cal surplus'],['Sodium','2,000–3,000mg baseline'],['Check-in Pace','0.5–1.5% bodyweight/week']].map(x=>`<div><b>${x[0]}</b><br>${x[1]}</div>`).join('');renderBars(t);renderPrint(t)}
+function exportJson(){let ids=['name','sex','age','height','heightUnit','weight','weightUnit','goalWeight','startDate','targetDate','activity','goal','trainingDays','steps','sleep','notes','calTarget','proteinTarget','carbTarget','fatTarget','fiberTarget','sugarTarget','sodiumTarget','waterTarget'];let data={version:'Sclass Fitness click-fixed static app',fields:Object.fromEntries(ids.map(id=>[id,$(id).value])),foods,state};let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=($('name').value||'sclass-client').replaceAll(' ','-').toLowerCase()+'.json';a.click()}
+function importJson(file){let r=new FileReader();r.onload=()=>{let d=JSON.parse(r.result);Object.entries(d.fields||{}).forEach(([id,v])=>{$(id)&&($(id).value=v)});if(d.foods)foods=d.foods;if(d.state)state=d.state;renderDb();renderCheckins();renderMeals();update()};r.readAsText(file)}
+function showPage(page){all('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===page));all('.view').forEach(v=>v.classList.toggle('active',v.id===page));update()}
+window.addEventListener('DOMContentLoaded',()=>{setDates();renderDb();renderCheckins();autoTargets();renderMeals();update();all('.tab').forEach(btn=>btn.addEventListener('click',()=>showPage(btn.dataset.page)));['name','sex','age','height','heightUnit','weight','weightUnit','goalWeight','startDate','targetDate','activity','goal','trainingDays','steps','sleep','notes','calTarget','proteinTarget','carbTarget','fatTarget','fiberTarget','sugarTarget','sodiumTarget','waterTarget'].forEach(id=>$(id).addEventListener('input',update));$('autoBtn').addEventListener('click',()=>{autoTargets();update()});$('carbBtn').addEventListener('click',()=>{recalcCarbs();update()});$('addFood').addEventListener('click',addFood);$('saveJson').addEventListener('click',exportJson);$('loadJson').addEventListener('change',e=>e.target.files[0]&&importJson(e.target.files[0]));$('printBtn').addEventListener('click',()=>{showPage('print');setTimeout(()=>window.print(),50)})});
+</script>
 </body>
 </html>
