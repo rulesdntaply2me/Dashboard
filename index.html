@@ -3,85 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sclass Fitness Coaching Dashboard</title>
+  <title>Sclass Fitness | Coach Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <header class="hero">
-      <div>
-        <p class="eyebrow">SCLASS FITNESS</p>
-        <h1>Elite Coaching Dashboard</h1>
-        <p class="sub">Client profile, goal pacing, meal planner, macros, food database, and print-ready export.</p>
+  <div class="shell">
+    <aside class="sidebar no-print">
+      <div class="brand"><div class="mark">S</div><div><b>SCLASS FITNESS</b><span>Elite Coach System</span></div></div>
+      <nav>
+        <button class="nav active" data-view="dashboard">Dashboard</button>
+        <button class="nav" data-view="client">Client Profile</button>
+        <button class="nav" data-view="macros">Goal + Macros</button>
+        <button class="nav" data-view="planner">Meal Planner</button>
+        <button class="nav" data-view="checkins">Check-Ins</button>
+        <button class="nav" data-view="database">Food Database</button>
+        <button class="nav" data-view="export">Client PDF View</button>
+      </nav>
+      <div class="sideCard">
+        <small>Current Client</small>
+        <strong id="sideClientName">Client Name</strong>
+        <span id="sideGoal">Fat Loss</span>
       </div>
-      <div class="actions no-print">
-        <button id="saveBtn">Export Client JSON</button>
-        <label class="fileBtn">Import JSON<input id="importFile" type="file" accept="application/json" /></label>
+      <div class="sideActions">
+        <button id="downloadJson">Export Client JSON</button>
+        <label class="fileBtn">Import JSON<input id="importJson" type="file" accept="application/json"></label>
         <button onclick="window.print()">Print / Save PDF</button>
       </div>
-    </header>
+    </aside>
 
-    <section class="grid two">
-      <div class="card">
-        <h2>Client Profile</h2>
-        <div class="formgrid">
-          <label>Name<input id="clientName" value="Client Name"></label>
-          <label>Sex<select id="sex"><option>Male</option><option>Female</option></select></label>
-          <label>Age<input id="age" type="number" value="30"></label>
-          <label>Height (in)<input id="height" type="number" value="70"></label>
-          <label>Current Weight (lb)<input id="weight" type="number" value="200"></label>
-          <label>Goal Weight (lb)<input id="goalWeight" type="number" value="185"></label>
-          <label>Timeframe (weeks)<input id="weeks" type="number" value="16"></label>
-          <label>Activity<select id="activity"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55" selected>Moderate</option><option value="1.725">Very Active</option><option value="1.9">Athlete</option></select></label>
-          <label>Goal<select id="goal"><option>Fat Loss</option><option>Maintain</option><option>Lean Bulk</option><option>Muscle Gain</option><option>Recomp</option></select></label>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Coach Sclass Command Center</p>
+          <h1>Coaching Dashboard</h1>
+          <p class="muted">Built like your Excel base: client data → goals → meal plan → macro status → export.</p>
         </div>
-        <label>Coach Notes<textarea id="notes" placeholder="Medical notes, preferences, digestion, schedule, adherence issues..."></textarea></label>
-      </div>
-      <div class="card goldcard">
-        <h2>Macro Targets</h2>
-        <div class="stats">
-          <div><span id="bmr">0</span><small>BMR</small></div>
-          <div><span id="tdee">0</span><small>TDEE</small></div>
-          <div><span id="targetCalories">0</span><small>Target Calories</small></div>
-          <div><span id="weeklyChange">0</span><small>Weekly Change</small></div>
+        <div class="topStats">
+          <div><span id="topCals">0</span><small>Target Calories</small></div>
+          <div><span id="topActual">0</span><small>Planned Calories</small></div>
+          <div><span id="topStatus">Ready</span><small>Status</small></div>
         </div>
-        <div class="targets">
-          <label>Protein g<input id="proteinTarget" type="number"></label>
-          <label>Carbs g<input id="carbTarget" type="number"></label>
-          <label>Fat g<input id="fatTarget" type="number"></label>
-          <label>Sodium mg<input id="sodiumTarget" type="number" value="2500"></label>
-        </div>
-        <p id="goalStatus" class="status"></p>
-      </div>
-    </section>
+      </header>
 
-    <section class="card">
-      <div class="sectionHead"><h2>Meal Planner</h2><p>6 meals • 7 items per meal • category filtered • grams/oz/serving conversion</p></div>
-      <div id="meals"></div>
-    </section>
-
-    <section class="grid two">
-      <div class="card">
-        <h2>Daily Totals</h2>
-        <div class="totals"><div>Calories <b id="calTotal">0</b></div><div>Protein <b id="proTotal">0g</b></div><div>Carbs <b id="carbTotal">0g</b></div><div>Fat <b id="fatTotal">0g</b></div><div>Sodium <b id="sodTotal">0mg</b></div><div>Sugar <b id="sugarTotal">0g</b></div></div>
-        <div id="macroFlags" class="flags"></div>
-      </div>
-      <div class="card no-print">
-        <h2>Food Database</h2>
-        <p class="hint">Add foods here. Macros are based on 100g unless serving size is used.</p>
-        <div class="dbAdd">
-          <input id="dbName" placeholder="Food name">
-          <select id="dbCat"><option>Protein</option><option>Carb</option><option>Fat</option><option>Vegetable</option><option>Fruit</option><option>Dairy</option><option>Other</option><option>Blank</option></select>
-          <input id="dbCal" placeholder="Cal" type="number">
-          <input id="dbPro" placeholder="P" type="number">
-          <input id="dbCarb" placeholder="C" type="number">
-          <input id="dbFat" placeholder="F" type="number">
-          <input id="dbServ" placeholder="Serving g" type="number" value="100">
-          <button id="addFood">Add</button>
+      <section id="dashboard" class="view active">
+        <div class="kpiGrid">
+          <div class="kpi"><small>BMR</small><b id="bmrOut">0</b></div>
+          <div class="kpi"><small>TDEE</small><b id="tdeeOut">0</b></div>
+          <div class="kpi"><small>Weekly Goal Pace</small><b id="weeklyPaceOut">0</b></div>
+          <div class="kpi"><small>Macro Accuracy</small><b id="accuracyOut">0%</b></div>
         </div>
-        <div id="dbList" class="dbList"></div>
-      </div>
-    </section>
+        <div class="grid two">
+          <section class="card"><h2>Coach Snapshot</h2><div id="coachSnapshot" class="snapshot"></div></section>
+          <section class="card"><h2>Red Flags / Notes</h2><textarea id="coachNotes" placeholder="Medical notes, Crohn's, digestion, low iron, schedule issues, adherence patterns, foods to avoid..."></textarea></section>
+        </div>
+        <section class="card"><h2>Macro Status</h2><div id="macroBars" class="bars"></div></section>
+      </section>
+
+      <section id="client" class="view">
+        <section class="card"><h2>Client Profile</h2>
+          <div class="formGrid four">
+            <label>Full Name<input id="clientName" value="Client Name"></label>
+            <label>Sex<select id="sex"><option>Male</option><option>Female</option></select></label>
+            <label>Age<input id="age" type="number" value="30"></label>
+            <label>Height<input id="height" type="number" value="70"></label>
+            <label>Height Unit<select id="heightUnit"><option value="in">inches</option><option value="cm">cm</option></select></label>
+            <label>Current Weight<input id="weight" type="number" value="200"></label>
+            <label>Weight Unit<select id="weightUnit"><option value="lb">lb</option><option value="kg">kg</option></select></label>
+            <label>Goal Weight<input id="goalWeight" type="number" value="185"></label>
+            <label>Start Date<input id="startDate" type="date"></label>
+            <label>Target Date<input id="targetDate" type="date"></label>
+            <label>Activity Level<select id="activity"><option value="1.2">Sedentary</option><option value="1.375">Light</option><option value="1.55" selected>Moderate</option><option value="1.725">Very Active</option><option value="1.9">Athlete</option></select></label>
+            <label>Primary Goal<select id="goal"><option>Fat Loss</option><option>Maintain</option><option>Lean Bulk</option><option>Muscle Gain</option><option>Recomp</option></select></label>
+          </div>
+          <div class="formGrid three">
+            <label>Training Days / Week<input id="trainingDays" type="number" value="4"></label>
+            <label>Steps / Day<input id="steps" type="number" value="8000"></label>
+            <label>Sleep Goal<input id="sleepGoal" type="number" value="7"></label>
+          </div>
+        </section>
+      </section>
+
+      <section id="macros" class="view">
+        <section class="card"><h2>Goal Pacing System</h2>
+          <div class="formGrid four">
+            <label>Calories<input id="calTarget" type="number"></label>
+            <label>Protein g<input id="proteinTarget" type="number"></label>
+            <label>Carbs g<input id="carbTarget" type="number"></label>
+            <label>Fat g<input id="fatTarget" type="number"></label>
+            <label>Fiber g<input id="fiberTarget" type="number" value="30"></label>
+            <label>Sugar Max g<input id="sugarTarget" type="number" value="60"></label>
+            <label>Sodium mg<input id="sodiumTarget" type="number" value="2500"></label>
+            <label>Water oz<input id="waterTarget" type="number" value="120"></label>
+          </div>
+          <div class="actions"><button id="autoMacros">Auto Calculate Macros</button><button id="lockTargets">Recalculate Carbs From Calories</button></div>
+          <p id="paceStatus" class="statusBox"></p>
+        </section>
+        <section class="card"><h2>Ideal Quick Ranges</h2><div class="rangeGrid" id="rangeGrid"></div></section>
+      </section>
+
+      <section id="planner" class="view">
+        <section class="card"><div class="sectionHead"><h2>Meal Planner</h2><span>6 meals • 7 items per meal • category filtered • alphabetical dropdowns</span></div><div id="meals"></div></section>
+      </section>
+
+      <section id="checkins" class="view">
+        <section class="card"><h2>Weekly Check-Ins</h2>
+          <table class="checkTable"><thead><tr><th>Week</th><th>Date</th><th>Weight</th><th>Change</th><th>Avg Calories</th><th>Adherence %</th><th>Notes</th></tr></thead><tbody id="checkRows"></tbody></table>
+        </section>
+      </section>
+
+      <section id="database" class="view">
+        <section class="card"><h2>Food Database</h2><p class="muted">Macros are stored per 100g. Serving size lets the meal planner use “serving” automatically.</p>
+          <div class="dbEditor">
+            <input id="newFoodName" placeholder="Food name">
+            <select id="newFoodCat"></select>
+            <input id="newFoodCal" type="number" placeholder="Cal">
+            <input id="newFoodP" type="number" placeholder="Protein">
+            <input id="newFoodC" type="number" placeholder="Carbs">
+            <input id="newFoodF" type="number" placeholder="Fat">
+            <input id="newFoodFiber" type="number" placeholder="Fiber">
+            <input id="newFoodSugar" type="number" placeholder="Sugar">
+            <input id="newFoodSodium" type="number" placeholder="Sodium">
+            <input id="newFoodServing" type="number" placeholder="Serving g" value="100">
+            <button id="addFood">Add Food</button>
+          </div>
+          <div class="tableWrap"><table><thead><tr><th>Category</th><th>Food</th><th>Cal</th><th>P</th><th>C</th><th>F</th><th>Fiber</th><th>Sugar</th><th>Sodium</th><th>Serving</th></tr></thead><tbody id="foodTable"></tbody></table></div>
+        </section>
+      </section>
+
+      <section id="export" class="view print-area">
+        <section class="clientSheet">
+          <h1>Sclass Fitness Meal Plan</h1>
+          <div class="clientMeta" id="clientMeta"></div>
+          <h2>Daily Targets</h2><div id="exportTargets" class="exportGrid"></div>
+          <h2>Meal Plan</h2><div id="exportMeals"></div>
+          <h2>Coach Notes</h2><p id="exportNotes"></p>
+        </section>
+      </section>
+    </main>
   </div>
   <script src="app.js"></script>
 </body>

@@ -1,0 +1,1 @@
+Sclass Fitness static coaching dashboard. Upload contents to GitHub/Vercel. Vercel settings: Framework Preset Other; Build Command blank; Install Command blank; Output Directory blank. Entry file: index.html.
