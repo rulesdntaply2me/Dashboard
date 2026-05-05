@@ -1,4 +1,1 @@
-Sclass Fitness coaching app - nutrition audited version.
-Static Vercel app: no package.json, no npm install.
-Vercel settings: Framework Other; Install/Build/Output blank.
-Use Reset Food DB after uploading if your browser has old saved foods in localStorage.
+Sclass Fitness Coaching App - code audited fixed static version. Upload contents to Vercel with Framework Other and blank install/build/output commands. If old browser data causes issues, use Reset Food DB and/or import/export clients.
