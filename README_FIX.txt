@@ -1,0 +1,1 @@
+Fixed Drinks/Other dropdown population by merging new built-in foods into old browser storage. Split fruit into its own Fruit category. Click Reset Food DB once after deploying if your browser still shows old cached data.
