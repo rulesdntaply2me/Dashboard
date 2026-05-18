@@ -484,4 +484,52 @@ window.addEventListener('DOMContentLoaded',()=>{installV2Foods();all('.dietFilte
 })();
 </script>
 
+
+<!-- SCLASS DELI/CHEESE PATCH -->
+<script>
+window.SCLASS_EXTRA_FOODS = [
+{name:"Deli Roast Beef",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:30,protein:5,carbs:1,fat:1},
+{name:"Deli Turkey",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:29,protein:6,carbs:1,fat:1},
+{name:"Deli Chicken",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:32,protein:6,carbs:1,fat:1},
+{name:"Deli Ham",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:40,protein:5,carbs:1,fat:2},
+{name:"Deli Pastrami",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:41,protein:5,carbs:1,fat:2},
+{name:"Deli Salami",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:105,protein:6,carbs:1,fat:9},
+{name:"Deli Pepperoni",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:140,protein:6,carbs:1,fat:13},
+{name:"Deli Bologna",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:90,protein:4,carbs:1,fat:8},
+{name:"Deli Capicola",category:"Protein",servingLabel:"1 slice",servingGrams:28,calories:80,protein:5,carbs:1,fat:6},
+
+{name:"American Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:70,protein:4,carbs:2,fat:5},
+{name:"Cheddar Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:80,protein:5,carbs:1,fat:7},
+{name:"Swiss Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:75,protein:5,carbs:1,fat:6},
+{name:"Provolone Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:80,protein:6,carbs:1,fat:6},
+{name:"Mozzarella Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:70,protein:6,carbs:1,fat:5},
+{name:"Pepper Jack Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:80,protein:5,carbs:1,fat:7},
+{name:"Colby Jack Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:80,protein:5,carbs:1,fat:7},
+{name:"Munster Cheese Slice",category:"Fat",servingLabel:"1 slice",servingGrams:21,calories:80,protein:5,carbs:1,fat:7}
+];
+
+(function(){
+function injectFoods(){
+    let targets=["foodDB","foods","DEFAULT_FOODS","defaultFoods","FOODS"];
+    targets.forEach(t=>{
+        if(Array.isArray(window[t])){
+            window.SCLASS_EXTRA_FOODS.forEach(f=>{
+                if(!window[t].some(x=>x.name===f.name)){
+                    window[t].push(f);
+                }
+            });
+        }
+    });
+}
+window.addEventListener("load",()=>{
+    injectFoods();
+    try{
+        localStorage.removeItem("foodDB");
+        localStorage.removeItem("foods");
+        localStorage.removeItem("sclassFoodDb");
+    }catch(e){}
+});
+})();
+</script>
+
 </body></html>
