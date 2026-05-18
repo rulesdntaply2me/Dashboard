@@ -1,0 +1,30 @@
+This version directly patches the app food database and every food dropdown.
+
+If the foods still do not appear:
+1. Open the app.
+2. Click Reset Food DB.
+3. Click Force Deli/Cheese Refresh.
+4. Hard refresh browser:
+   Windows: Ctrl + F5
+   Mac: Cmd + Shift + R
+
+Added actual dropdown foods:
+- Deli Roast Beef
+- Deli Turkey
+- Deli Chicken
+- Deli Ham
+- Deli Pastrami
+- Deli Salami
+- Deli Pepperoni
+- Deli Bologna
+- Deli Capicola
+- American Cheese Slice
+- Cheddar Cheese Slice
+- Swiss Cheese Slice
+- Provolone Cheese Slice
+- Mozzarella Cheese Slice
+- Pepper Jack Cheese Slice
+- Colby Jack Cheese Slice
+- Munster Cheese Slice
+
+All have servingLabel: 1 slice.
