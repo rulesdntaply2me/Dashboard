@@ -651,4 +651,87 @@ function sclassMergeDeliCheeseFoods(){
 })();
 </script>
 
+
+<div id="sclassFoodTools" style="position:fixed;right:18px;bottom:18px;z-index:99999;background:#111827;color:white;border:1px solid #d4af37;border-radius:14px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:Arial,sans-serif;max-width:260px;">
+  <div style="font-weight:800;margin-bottom:8px;color:#d4af37;">Food Database Tools</div>
+  <button type="button" onclick="window.sclassRefreshDeliCheeseFoods && window.sclassRefreshDeliCheeseFoods(); alert('Deli meats and cheese slices refreshed. Now reopen the food dropdown.');" style="display:block;width:100%;margin-bottom:8px;padding:10px;border-radius:10px;border:0;background:#d4af37;color:#111827;font-weight:800;cursor:pointer;">Refresh Deli/Cheese</button>
+  <button type="button" onclick="try{['sclassFoodDb','foodDb','foods','sclass_food_db','SCLASS_FOOD_DB'].forEach(k=>localStorage.removeItem(k)); window.sclassRefreshDeliCheeseFoods && window.sclassRefreshDeliCheeseFoods(); alert('Food DB reset and deli/cheese added. Hard refresh if needed.');}catch(e){alert(e.message)}" style="display:block;width:100%;padding:10px;border-radius:10px;border:1px solid #d4af37;background:#1f2937;color:white;font-weight:700;cursor:pointer;">Reset Food DB + Add</button>
+</div>
+
+
+<script>
+/* SCLASS VISIBLE DELI/CHEESE TOOL PANEL */
+(function(){
+  const foods = [
+    {name:"Deli Roast Beef",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:30,protein:5,carbs:1,fat:1,tags:["glutenFree"]},
+    {name:"Deli Turkey",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:29,protein:6,carbs:1,fat:1,tags:["glutenFree"]},
+    {name:"Deli Chicken",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:32,protein:6,carbs:1,fat:1,tags:["glutenFree"]},
+    {name:"Deli Ham",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:40,protein:5,carbs:1,fat:2,tags:["glutenFree"]},
+    {name:"Deli Pastrami",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:41,protein:5,carbs:1,fat:2,tags:["glutenFree"]},
+    {name:"Deli Salami",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:105,protein:6,carbs:1,fat:9,tags:["glutenFree"]},
+    {name:"Deli Pepperoni",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:140,protein:6,carbs:1,fat:13,tags:["glutenFree"]},
+    {name:"Deli Bologna",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:90,protein:4,carbs:1,fat:8,tags:["glutenFree"]},
+    {name:"Deli Capicola",category:"Protein",servingLabel:"1 slice",servingGrams:28,gramsPerServing:28,calories:80,protein:5,carbs:1,fat:6,tags:["glutenFree"]},
+    {name:"American Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:70,protein:4,carbs:2,fat:5,tags:["vegetarian"]},
+    {name:"Cheddar Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:80,protein:5,carbs:1,fat:7,tags:["vegetarian"]},
+    {name:"Swiss Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:75,protein:5,carbs:1,fat:6,tags:["vegetarian"]},
+    {name:"Provolone Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:80,protein:6,carbs:1,fat:6,tags:["vegetarian"]},
+    {name:"Mozzarella Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:70,protein:6,carbs:1,fat:5,tags:["vegetarian"]},
+    {name:"Pepper Jack Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:80,protein:5,carbs:1,fat:7,tags:["vegetarian"]},
+    {name:"Colby Jack Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:80,protein:5,carbs:1,fat:7,tags:["vegetarian"]},
+    {name:"Munster Cheese Slice",category:"Fats",servingLabel:"1 slice",servingGrams:21,gramsPerServing:21,calories:80,protein:5,carbs:1,fat:7,tags:["vegetarian"]}
+  ];
+
+  function mergeIntoArray(arr){
+    if(!Array.isArray(arr)) return arr;
+    const existing = new Set(arr.map(f => String(f.name || "").toLowerCase()));
+    foods.forEach(f => { if(!existing.has(f.name.toLowerCase())) arr.push({...f}); });
+    return arr;
+  }
+
+  window.sclassRefreshDeliCheeseFoods = function(){
+    ["DEFAULT_FOODS","foods","foodDB","FOODS","defaultFoods"].forEach(k => {
+      if(Array.isArray(window[k])) mergeIntoArray(window[k]);
+    });
+
+    ["sclassFoodDb","foodDb","foods","sclass_food_db","SCLASS_FOOD_DB"].forEach(k => {
+      try{
+        let raw = localStorage.getItem(k);
+        let arr = raw ? JSON.parse(raw) : [];
+        if(Array.isArray(arr)){
+          mergeIntoArray(arr);
+          localStorage.setItem(k, JSON.stringify(arr));
+        }
+      }catch(e){}
+    });
+
+    document.querySelectorAll("select").forEach(sel => {
+      const allText = Array.from(sel.options).map(o=>o.textContent).join(" ").toLowerCase();
+      const idText = ((sel.id||"")+" "+(sel.name||"")+" "+(sel.className||"")).toLowerCase();
+      const looksFood = idText.includes("food") || allText.includes("chicken") || allText.includes("rice") || allText.includes("protein");
+      if(!looksFood) return;
+      const existing = new Set(Array.from(sel.options).map(o => o.value || o.textContent));
+      foods.forEach(f => {
+        if(!existing.has(f.name)){
+          const opt = document.createElement("option");
+          opt.value = f.name;
+          opt.textContent = f.name + " (" + f.servingLabel + ")";
+          sel.appendChild(opt);
+        }
+      });
+    });
+
+    ["renderFoodDropdowns","populateFoodDropdowns","renderMealPlanner","renderMeals","render","updateFoodOptions"].forEach(fn => {
+      try{ if(typeof window[fn] === "function") window[fn](); }catch(e){}
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.sclassRefreshDeliCheeseFoods();
+    setTimeout(window.sclassRefreshDeliCheeseFoods, 500);
+    setTimeout(window.sclassRefreshDeliCheeseFoods, 1500);
+  });
+})();
+</script>
+
 </body></html>
