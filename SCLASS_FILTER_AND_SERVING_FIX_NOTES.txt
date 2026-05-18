@@ -1,0 +1,26 @@
+Sclass Fitness App Patch
+
+Fixed:
+- Crohn's/IBS filter was too aggressive.
+- Low FODMAP filter was too aggressive.
+- Diabetic filter now removes obvious sugar drinks/candy but keeps normal lean proteins/veg.
+- Lactose/dairy-free filter now removes obvious dairy unless labeled lactose-free/dairy-free.
+- Halal/kosher filters remove obvious pork/shellfish but do not claim certification.
+- Vegan filter remains strict because vegan-only should only show vegan-tagged foods.
+
+Serving fixes:
+- Bread/Ezekiel/Sourdough = 1 slice
+- Deli meat = 1 slice
+- Rice Krispies = 1 treat
+- Rice cake = 1 rice cake
+- Bagel = 1 bagel
+- English muffin = 1 muffin
+- Tortilla = 1 tortilla
+- Wrap = 1 wrap
+- Protein powders = 1 scoop
+- Eggs = 1 egg
+- Drinks = can/bottle or 1 cup depending item
+- Fruits = each where normal
+
+Important:
+If your browser has old saved food data, click Reset Food DB once after loading this version.

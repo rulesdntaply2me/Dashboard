@@ -1,0 +1,38 @@
+Food,Issue,Changed Values
+Whey Protein Powder,Brand-specific estimate; label varies.,No numeric change; flagged as brand/recipe variable.
+Casein Protein Powder,Brand-specific estimate; label varies.,No numeric change; flagged as brand/recipe variable.
+Protein Shake Ready-to-Drink,Brand-specific estimate; label varies.,No numeric change; flagged as brand/recipe variable.
+Turkey Bacon,Brand-specific estimate; label varies widely.,No numeric change; flagged as brand/recipe variable.
+Chicken Sausage,Brand-specific estimate; label varies widely.,No numeric change; flagged as brand/recipe variable.
+Deli Turkey Low Sodium,Brand-specific estimate; verify label.,No numeric change; flagged as brand/recipe variable.
+Ham Lean,Cured meat varies by brand and water content.,No numeric change; flagged as brand/recipe variable.
+Ezekiel Bread,App was using rough rounded values; corrected from slice-to-100g math.,cal: 250 → 235; p: 15 → 14.7; c: 43 → 44.1; fat: 3.5 → 2.9; fiber: 6 → 8.8; sodium: 400 → 529
+Whole Wheat Bread,Minor correction; fiber reduced from over-rounded 7g.,p: 13 → 12.9; c: 41 → 41.3; fiber: 7 → 6.0; sugar: 6 → 5.9
+Bagel Plain,Carbs/calories adjusted to generic plain bagel per 100g.,cal: 250 → 257; p: 10 → 10.2; c: 49 → 53.0; fat: 1.5 → 1.7; fiber: 2 → 2.4; sugar: 6 → 5.7; sodium: 450 → 430
+English Muffin,Minor correction to generic English muffin.,cal: 227 → 235; p: 8 → 8.8; c: 44 → 46.0; fat: 2 → 1.8; sodium: 430 → 464
+Tortilla Flour,Generic flour tortilla sodium was low.,cal: 312 → 304; p: 8 → 8.2; c: 51 → 50.6; fiber: 3 → 3.5; sugar: 2 → 2.6; sodium: 600 → 732
+Rice Cakes,Generic plain rice cakes; app sodium was too high for unsalted/plain.,p: 8 → 8.2; c: 82 → 81.5; fiber: 4 → 4.2; sodium: 300 → 71
+Cereal Rice Krispies,Adjusted cereal carbs/sugar/sodium closer to generic/label style.,p: 7 → 6.8; c: 85 → 88.2; fiber: 1 → 0.9; sugar: 10 → 7.9; sodium: 700 → 529
+Cereal Cheerios,Sugar was too high for plain Cheerios-style cereal.,p: 12 → 12.1; c: 74 → 73.2; fat: 6 → 6.7; sugar: 8 → 4.8
+Granola,Recipe/brand-specific estimate; verify label.,No numeric change; flagged as brand/recipe variable.
+Ghee,"100g ghee is usually ~876 kcal, not 900.",cal: 900 → 876; p: 0 → 0.3; fat: 100 → 99.5; sodium: 0 → 2
+Mixed Vegetables,Frozen blends vary; keep as estimate.,No numeric change; flagged as brand/recipe variable.
+Fairlife Skim Milk,Brand math from common label per 240 mL; app had calories too high per 100 mL.,cal: 43 → 33; p: 5.7 → 5.4; c: 2.9 → 2.5; sugar: 2.9 → 2.5; sodium: 57 → 52
+Greek Yogurt Vanilla Light,Brand-specific estimate; label varies.,No numeric change; flagged as brand/recipe variable.
+Protein Bar,Brand-specific estimate; must be overridden with label for exact coaching.,No numeric change; flagged as brand/recipe variable.
+Quest Bar,Brand/flavor-specific estimate; label varies.,No numeric change; flagged as brand/recipe variable.
+BBQ Sauce,Brand-specific estimate.,No numeric change; flagged as brand/recipe variable.
+Teriyaki Sauce,Brand-specific estimate; sodium can be very high.,No numeric change; flagged as brand/recipe variable.
+Hot Sauce,Brand-specific estimate.,No numeric change; flagged as brand/recipe variable.
+Ranch Dressing,Brand-specific estimate.,No numeric change; flagged as brand/recipe variable.
+Low Fat Mayo,Brand-specific estimate.,No numeric change; flagged as brand/recipe variable.
+Pink Himalayan Salt,Approx sodium content for salt; varies slightly by mineral content.,No numeric change; flagged as brand/recipe variable.
+Chicken Rice Broccoli Bowl,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Turkey Taco Bowl,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Lean Beef Potato Bowl,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Salmon Rice Asparagus Meal,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Egg White Oat Pancakes,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Protein French Toast,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Greek Yogurt Bowl,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Protein Pudding,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.
+Anabolic Mug Cake,Recipe estimate only; exact macros depend on the ingredients and cooked weights you use.,No numeric change; flagged as brand/recipe variable.

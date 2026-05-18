@@ -1,0 +1,12 @@
+Your app has been preconfigured with your Supabase URL.
+
+IMPORTANT:
+Paste your FULL anon key into the app once opened because it was shortened for security inside the generated ZIP.
+
+Steps:
+1. Deploy to Vercel
+2. Open app
+3. Paste full anon key
+4. Click Save To Cloud
+5. Open same app on any device
+6. Click Load From Cloud

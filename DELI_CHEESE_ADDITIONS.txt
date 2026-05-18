@@ -1,0 +1,31 @@
+
+Added deli meats:
+- Deli Roast Beef
+- Deli Turkey
+- Deli Chicken
+- Deli Ham
+- Deli Pastrami
+- Deli Salami
+- Deli Pepperoni
+- Deli Bologna
+- Deli Capicola
+
+All default to:
+Serving = 1 slice
+
+Added cheese slices:
+- American Cheese Slice
+- Cheddar Cheese Slice
+- Swiss Cheese Slice
+- Provolone Cheese Slice
+- Mozzarella Cheese Slice
+- Pepper Jack Cheese Slice
+- Colby Jack Cheese Slice
+- Munster Cheese Slice
+
+All default to:
+Serving = 1 slice
+
+Approximate serving weights:
+- Deli meat slice = 28g
+- Cheese slice = 21g
